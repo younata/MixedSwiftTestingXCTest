@@ -1,12 +1,15 @@
 import XCTest
-@testable import MixedSwiftTestingXCTest
+import Testing
 
 final class MixedSwiftTestingXCTestTests: XCTestCase {
-    func testExample() throws {
-        // XCTest Documentation
-        // https://developer.apple.com/documentation/xctest
+    func testShouldntRecordFailure() {
+        XCTExpectFailure("This should fail")
+        XCTFail("This should fail")
+    }
+}
 
-        // Defining Test Cases and Test Methods
-        // https://developer.apple.com/documentation/xctest/defining_test_cases_and_test_methods
+@Test func reportsAssertionFailuresToSwiftTesting() {
+    withKnownIssue {
+        Testing.Issue.record("This should fail")
     }
 }
