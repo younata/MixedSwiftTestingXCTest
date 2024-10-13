@@ -23,7 +23,7 @@ let package = Package(
             name: "MixedSwiftTestingXCTestTests",
             dependencies: [
                 "MixedSwiftTestingXCTest",
-                .product(name: "Nimble", package: "Nimble")
+                .product(name: "Nimble", package: "Nimble"),
             ]
         ),
     ]
