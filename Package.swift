@@ -11,6 +11,9 @@ let package = Package(
             name: "MixedSwiftTestingXCTest",
             targets: ["MixedSwiftTestingXCTest"]),
     ],
+    dependencies: [
+        .package(url: "https://github.com/quick/nimble", from: "13.5.0"),
+    ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
@@ -18,7 +21,10 @@ let package = Package(
             name: "MixedSwiftTestingXCTest"),
         .testTarget(
             name: "MixedSwiftTestingXCTestTests",
-            dependencies: ["MixedSwiftTestingXCTest"]
+            dependencies: [
+                "MixedSwiftTestingXCTest",
+                .product(name: "Nimble", package: "Nimble")
+            ]
         ),
     ]
 )
